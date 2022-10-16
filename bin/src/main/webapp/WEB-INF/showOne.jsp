@@ -23,7 +23,7 @@
 <body>
 
 <h1><c:out value="${baby.name}"/></h1>
-<h3>(Added by <c:out value="${baby.user.userName}."/>)</h3>
+<h3>(Added by <c:out value="${user.userName}."/>)</h3>
 <p>Gender: <c:out value="${baby.gender}"/> </p>
 <p>Origin: <c:out value="${baby.origin}"/> </p>
 <p>Meaning: <c:out value="${baby.thoughts}"/> </p>

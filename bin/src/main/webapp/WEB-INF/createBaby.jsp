@@ -27,7 +27,7 @@
   <div class="col-auto">
     <div class="card">
       <div class="card-body">
-        <form:form action="/names/new" method="post" modelAttribute="baby">
+        <form:form action="/names/${baby.id}" method="post" modelAttribute="baby">
           <form:hidden path="user" value="${user.id}"/>
           <p class="form-control d-flex flex-column">
             <form:label path="name">New Name:</form:label>

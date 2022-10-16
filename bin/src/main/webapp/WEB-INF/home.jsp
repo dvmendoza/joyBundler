@@ -21,21 +21,31 @@
   <title>Login/Registration</title>
 </head>
 <body>
+  <h1 class="text-center">Hello, <c:out value="${user.userName}."/> Here are some name suggestions..</h1>
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-hover table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Origin</th>
+          </tr>
+          <c:forEach var="baby" items="${baby}">
+            <tr>
+              <td><a href="/names/${baby.id}"><c:out value="${baby.name}"/></a></td>
+              <td><c:out value="${baby.gender}"/></td>
+              <td><c:out value="${baby.origin}"/></td>
+            </tr>
+           </c:forEach>
+        </table>
+      </div>
+    </div>
+  </div>
+  <a href="/names/new">&#171; new name</a>
 
-<h1><c:out value="${baby.name}"/></h1>
-<h3>(Added by <c:out value="${baby.user.userName}."/>)</h3>
-<p>Gender: <c:out value="${baby.gender}"/> </p>
-<p>Origin: <c:out value="${baby.origin}"/> </p>
-<p>Meaning: <c:out value="${baby.thoughts}"/> </p>
-
-<c:if test="${user.getId() == baby.user.getId()}">
-    <a class="btn btn-secondary" href="/names/edit/${baby.id}">Edit</a>
-        <form action="/names/destroy/${baby.id}" method="post">
-            <input type="hidden" name="_method" value="delete">
-            <input class="btn btn-danger" type="submit" value="Delete">
-        </form>
-
-    </c:if>
-
+  <a class="btn btn-danger" href="/logout">Logout</a>
+</div>
 </body>
 </html>

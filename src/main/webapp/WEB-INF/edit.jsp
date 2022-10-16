@@ -27,14 +27,21 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                <form:form action="/home" method="post" modelAttribute="baby">
+                <form:form action="/names/edit" method="post" modelAttribute="baby">
                     <input type="hidden" name="_method" value="put">
                     <form:hidden  path="user" value="${baby.setUser(user)}" ></form:hidden>
+                    <form:hidden  path="id" value="${baby.id}" ></form:hidden>
                     <div class="form-group">
                         <form:label path="name">Name</form:label>
                         <form:input  class="form-control" path="name"/>
                         <form:errors path="name"/>
                     </div>
+                      <div class="form-group">
+                        <form:label path="origin">Origin</form:label>
+                        <form:input  class="form-control" path="origin"/>
+                        <form:errors path="origin"/>
+                    </div>
+                    
                     <p class="form-control d-flex flex-column">
             <form:label path="gender">Gender</form:label>
             <form:select path="gender">

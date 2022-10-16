@@ -2,7 +2,6 @@ package com.dvmendoza.joybundler.controllers;
 
 
 import java.util.List;
-import java.util.Objects;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -34,7 +33,9 @@ public class BabyController {
         model.addAttribute("user", userService.getOne((Long) session.getAttribute("userId")));
         return "createBaby.jsp";
     }
-    @PostMapping("/home")
+      
+    
+    @PostMapping("/names/new")
     String create(@Valid @ModelAttribute("baby") Baby baby, BindingResult results) {
     	if(results.hasErrors()) {
     		return "createBaby.jsp";
@@ -64,7 +65,7 @@ public class BabyController {
         return "edit.jsp";
     }
    
-    @PutMapping("/names/{id}")
+    @PutMapping("/names/edit")
     String update(
             @Valid
             @ModelAttribute("baby") Baby baby,
